@@ -68,7 +68,7 @@ fn test_lbfgs() -> Result<()> {
     println!("     Solving sample problem (Rosenbrock test fcn).");
     println!("      (f = 0.0 at the optimal solution.)");
     let bounds: Vec<_> = l.into_iter().zip(u.into_iter()).collect();
-    let opt = lbfgsb(x, &bounds, evaluate)?;
+    let opt = lbfgsb(x, &bounds, evaluate, None)?;
     assert!(opt.fx() <= 1e-8);
     assert!(dbg!(opt.gx().vec2norm()) < 1e-3);
 
